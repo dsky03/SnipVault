@@ -3,13 +3,10 @@ import { connectDB } from "@/lib/mongodb";
 import Snippet from "@/models/Snippet";
 import { getCurrentUser } from "@/lib/auth";
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(req: Request, { params }: Params) {
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
   try {
     await connectDB();
 
@@ -31,7 +28,10 @@ export async function GET(req: Request, { params }: Params) {
 }
 
 // 업데이트
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
   try {
     await connectDB();
 
@@ -81,7 +81,10 @@ export async function PUT(req: Request, { params }: Params) {
 }
 
 // 삭제
-export async function DELETE(req: Request, { params }: Params) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
   try {
     await connectDB();
 
