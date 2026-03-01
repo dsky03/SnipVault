@@ -1,3 +1,5 @@
+"use client";
+
 import { Plus, Sparkles, Search } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../util/hook";
 import { setCreateSnippetModal } from "../util/modalSlice";
@@ -8,10 +10,6 @@ import api from "@/lib/axios";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { setUserId } from "../util/userSlice";
-
-interface HeaderProps {
-  counts?: Record<string, number>;
-}
 
 const CATEGORIES = [
   { label: "전체", value: "all" },
@@ -28,13 +26,14 @@ const CATEGORIES = [
   { label: "기타", value: "etc" },
 ];
 
-const Header = ({ counts }: HeaderProps) => {
+const Header = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const queryclient = useQueryClient();
   const selected = useAppSelector((state) => state.category.selected);
   const search = useAppSelector((state) => state.search.search);
   const userId = useAppSelector((state) => state.user.userId);
+  const counts = useAppSelector((state) => state.category.counts);
 
   const handleAuthBtn = async () => {
     if (!userId) {
