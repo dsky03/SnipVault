@@ -1,10 +1,30 @@
 "use client";
 
-import {
-  SandpackLayout,
-  SandpackPreview,
-  SandpackProvider,
-} from "@codesandbox/sandpack-react";
+import dynamic from "next/dynamic";
+
+// import {
+//   SandpackLayout,
+//   SandpackPreview,
+//   SandpackProvider,
+// } from "@codesandbox/sandpack-react";
+
+const SandpackProvider = dynamic(
+  () =>
+    import("@codesandbox/sandpack-react").then((mod) => mod.SandpackProvider),
+  { ssr: false },
+);
+
+const SandpackLayout = dynamic(
+  () => import("@codesandbox/sandpack-react").then((mod) => mod.SandpackLayout),
+  { ssr: false },
+);
+
+const SandpackPreview = dynamic(
+  () =>
+    import("@codesandbox/sandpack-react").then((mod) => mod.SandpackPreview),
+  { ssr: false },
+);
+
 import { useState } from "react";
 import {
   Code2,
