@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔖 SnipVault
+<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/ea929027-490b-4327-9053-ad8e5889fb15" />
 
-## Getting Started
+## 🧭 개발 배경
+프론트엔드 개발을 진행하다 보면 버튼, 모달, 폼 등 다양한 UI 컴포넌트를 반복적으로 구현하게 됩니다. 이 과정에서 이전에 작성했던 코드나 참고했던 UI를 다시 찾기 위해 GitHub, 블로그, 메모 등 여러 곳을 뒤져야 하는 경우가 많습니다. 그러나 이러한 방식은 코드가 여러 곳에 흩어져 관리되기 어렵고, 실제 동작을 확인하기 위해 별도의 프로젝트에 복사해 테스트해야 하는 번거로움이 있습니다.
 
-First, run the development server:
+또한 UI 예제나 코드 스티펫을 공유할 때 단순한 코드 테스트만으로는 실제 동작이나 스타일을 직관적으로 확인하기 어려워 협업이나 학습 과정에서 불편함이 발생합니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**SnipVault**는 이러한 문제를 해결하기 위해 UI 컴포넌트와 코드 스니펫을 한 곳에 저장하고 관리할 수 있도록 설계된 플랫폼입니다. 사용자는 UI 스니펫을 카테고리별로 탐색하고, 코드와 실제 실행 결과를 동시에 확인할 수 있어 필요한 UI를 빠르게 찾고 재사용할 수 있습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📖 프로젝트 소개
+**SnipVault**는 다양한 UI 컴포넌트와 코드 스티펫을 저장하고 관리할 수 있는 플랫폼으로, 개발자가 필요한 UI 예제를 빠르게 찾고 재사용할 수 있도록 설계된 사이트입니다. 코드와 실제 실행 결과를 동시에 확인할 수 있어 단순하고 코드 저장을 넘어 실질적인 UI 레퍼런스 라이브러리 역할을 합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+UI 스니펫 저장 및 관리
+- 버튼, 카드, 모달, 폼 등 다양한 UI 컴포넌트를 스니펫 형태로 저장
+- 카테고리 기반으로 UI를 체계적으로 분류
+- 필요한 UI 코드를 한 곳에서 관리하고 재사용 가능
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+실시간 UI 미리보기
+- 코드와 함께 실제 렌더링 결과를 동시에 확인 가능
+- 실행 환경에서 UI 동작을 바로 확인할 수 있는 인터렉티브 프리뷰 제공
+- UI 스타일과 동작을 빠르게 테스트할 수 있는 환경 제공
 
-## Learn More
+UI 탐색 및 검색
+- 카테고리 기반 UI 탐색 기능 제공
+- 제목 검색을 통해 원하는 UI 스니펫을 즉시 찾을 수 있는 구조
+- 다양한 UI 예제를 한눈에 확인할 수 있도록 설계
 
-To learn more about Next.js, take a look at the following resources:
+개발 생상성 향상
+- 반복적으로 구현되는 컴포넌트를 빠르게 참고하고 활용 가능
+- UI 구현 시 참고할 수 있는 예제 라이브러리 역할
+- 개발 과정에서 필요한 UI 패턴을 효율적으로 관리할 수 있는 구조
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 주요 기능 (영상)
 
-## Deploy on Vercel
+<details>
+  <summary><b>회원가입 및 로그인</b></summary>
+  <br />
+  <blockquote>
+    회원가입 및 로그인
+  </blockquote>
+  <br />
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/401f10d5-60e5-47e2-817b-01e46ea010a7" alt="회원가입및로그인" height="400">
+  </p>
+  
+  - 사이트에 접속하면 로그인 없이도 다른 사용자가 등록한 UI 스니펫을 확인할 수 있습니다.
+  - 회원가입 버튼을 누르고 회원가입을 할 수 있습니다. (중복 닉네임 허용 x)
+  - 로그인한 사용자는 자신이 작성한 스니펫을 모아 볼 수도 있고 관리할 수 있습니다.
+</details>
+<br />
+  
+<details>
+  <summary><b>스니펫 생성</b></summary>
+  <br />
+  <blockquote>
+    스니펫 생성
+  </blockquote>
+  <br />
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/3e3bf0bf-29fe-4353-9bb0-9a1f9fec36f6" alt="마이페이지" height="400">
+    <img src="https://github.com/user-attachments/assets/26aef01d-9c1c-4c3b-98e7-c40f93cbf251" alt="회원탈퇴" height="400">
+  </p>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - 버튼, 카드, 모달 등 다양한 UI 컴포넌트를 스니펫 형태로 저장할 수 있습니다.
+  - 제목 카테고리, 설명과 함께 코드를 작성하여 관리합니다.
+  - 코드를 붙여 놓으면 아래 프리뷰를 통해서 확인할 수 있습니다.
+  - Tailwind CSS 유틸리티 클래스를 기반으로 스타일을 구성합니다.
+</details>
+<br />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<details>
+  <summary><b>스니펫 카드</b></summary>
+  <br />
+  <blockquote>
+    스니펫 카드
+  </blockquote>
+  <br />
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/0150bdfb-b51e-4e7a-86e6-1cf906031d1d" alt="댓글작성" height="400">
+    <img src="https://github.com/user-attachments/assets/007c643f-3350-4dfe-8714-da86d5e8d4c8" alt="답글작성" height="400">
+  </p>
+  
+  - 스니펫 카드는 UI 프리뷰와 코드 화면을 버튼을 통해 전환하여 확인할 수 있습니다.
+  - 카드 옵션 메뉴를 통해 상세 페이지 이동, 코드 복사, 수정 및 삭제 기능을 사용할 수 있습니다.
+  - 코드 복사 버튼을 통해 스니펫 코드를 클립보드로 빠르게 복사할 수 있습니다.
+  - 작성자는 자신의 스니펫에 대해 수정 및 삭제 작업을 수행할 수 있습니다.
+  - 확장 버튼을 통해 스니펫 상세 페이지로 이동하여 더 큰 화면에서 확인할 수 있습니다.
+</details>
+<br />
+
+<details>
+  <summary><b>스니펫 관리</b></summary>
+  <br />
+  <blockquote>
+    카테고리
+  </blockquote>
+  <br />
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/9db31b54-b1fe-4736-9f6a-47079ea0bd4c" alt="그룹생성" height="400">
+    <img src="https://github.com/user-attachments/assets/f0e0b976-ca7c-463e-890b-7594095e9290" alt="초대코드" height="400">
+  </p>
+
+  - 버튼, 입력 필드, 드롭다운, 등 UI 컴포넌트 유형별 카테고리를 제공합니다.
+  - 카테고리를 선택하면 해당 유형의 스니펫만 필터링하여 확인할 수 있습니다.
+  - My 카테고리를 통해 자신이 작성한 스니펫만 모아 확인할 수 있습니다.
+  - 각 카테고리에는 현재 등록된 스니펫 개수가 함께 표시됩니다.
+  <br />
+  
+  <blockquote>
+    스니펫 확장
+  </blockquote>
+    <br />
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/83e625f0-7c03-423e-b383-5163af68be88" alt="그룹가입" height="400">
+    <img src="https://github.com/user-attachments/assets/9b3d8ae6-e346-4107-a12c-6d699a786897" alt="그룹탈퇴멤버" height="400">
+    <img src="https://github.com/user-attachments/assets/831c2092-2dad-4778-86ec-0f028fa4be1a" alt="그룹탈퇴소유자" height="400">
+  </p>
+
+  - 카드에서 확장 버튼을 누르면 스니펫 상세 페이지로 이동할 수 있습니다.
+  - 상세 페이지에서는 큰 화면의 UI 프리뷰와 코드를 함께 확인할 수 있습니다.
+  - 스니펫 설명, 작성자, 생성 및 수정 날짜 등의 정보를 확인할 수 있습니다.
+  - 코드 실행 환경을 통해 UI 동작을 직접 확인할 수 있습니다.
+
+  <br />
+</details>
+<br />
+
+## 👨🏻‍💻 팀원 소개
+<p align="center">
+  <img height="150" alt="백엔드" src="https://github.com/user-attachments/assets/3f523dae-3032-4b0e-8252-92ba4f320be5" />
+</p>
+</br>
+<p align="center">
+  <img height="150" alt="프론트엔드" src="https://github.com/user-attachments/assets/323a1fa0-6dc4-4b52-8601-ec363cfd85f2" />
+</p>
+</br>
+
+## 🛠️ 기술 스택
+<blockquote>
+  프론트엔드
+</blockquote>
+  <br />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ea0e4a9d-29ca-4fe2-abd1-8313e8467be9" alt="프론트엔드" height="200">
+</p>
+</br>
+<blockquote>
+  백엔드
+</blockquote>
+  <br />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b9bc3755-abe7-4e80-a763-1540b954dc56" alt="백엔드" height="200">
+</p>
