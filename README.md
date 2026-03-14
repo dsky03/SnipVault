@@ -42,7 +42,7 @@ UI 탐색 및 검색
   </blockquote>
   <br />
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/401f10d5-60e5-47e2-817b-01e46ea010a7" alt="회원가입및로그인" height="400">
+    <img src="https://github.com/user-attachments/assets/1926d8e0-c2b4-4ecc-84d8-083ed349ac45" alt="회원가입및로그인" height="400">
   </p>
   
   - 사이트에 접속하면 로그인 없이도 다른 사용자가 등록한 UI 스니펫을 확인할 수 있습니다.
@@ -59,8 +59,7 @@ UI 탐색 및 검색
   </blockquote>
   <br />
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/3e3bf0bf-29fe-4353-9bb0-9a1f9fec36f6" alt="마이페이지" height="400">
-    <img src="https://github.com/user-attachments/assets/26aef01d-9c1c-4c3b-98e7-c40f93cbf251" alt="회원탈퇴" height="400">
+    <img src="https://github.com/user-attachments/assets/a61c6cda-f7b6-45f7-adaf-608fd7784aeb" alt="스니펫생성" height="400">
   </p>
 
   - 버튼, 카드, 모달 등 다양한 UI 컴포넌트를 스니펫 형태로 저장할 수 있습니다.
@@ -78,8 +77,7 @@ UI 탐색 및 검색
   </blockquote>
   <br />
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/0150bdfb-b51e-4e7a-86e6-1cf906031d1d" alt="댓글작성" height="400">
-    <img src="https://github.com/user-attachments/assets/007c643f-3350-4dfe-8714-da86d5e8d4c8" alt="답글작성" height="400">
+    <img src="https://github.com/user-attachments/assets/6de0fff7-94ef-485e-8ef9-0d9349ddf28b" alt="스니펫카드" height="400">
   </p>
   
   - 스니펫 카드는 UI 프리뷰와 코드 화면을 버튼을 통해 전환하여 확인할 수 있습니다.
@@ -98,8 +96,7 @@ UI 탐색 및 검색
   </blockquote>
   <br />
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/9db31b54-b1fe-4736-9f6a-47079ea0bd4c" alt="그룹생성" height="400">
-    <img src="https://github.com/user-attachments/assets/f0e0b976-ca7c-463e-890b-7594095e9290" alt="초대코드" height="400">
+    <img src="https://github.com/user-attachments/assets/1581acd3-0ffe-433a-b04a-81d886a566a2" alt="카테고리" height="400">
   </p>
 
   - 버튼, 입력 필드, 드롭다운, 등 UI 컴포넌트 유형별 카테고리를 제공합니다.
@@ -113,9 +110,7 @@ UI 탐색 및 검색
   </blockquote>
     <br />
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/83e625f0-7c03-423e-b383-5163af68be88" alt="그룹가입" height="400">
-    <img src="https://github.com/user-attachments/assets/9b3d8ae6-e346-4107-a12c-6d699a786897" alt="그룹탈퇴멤버" height="400">
-    <img src="https://github.com/user-attachments/assets/831c2092-2dad-4778-86ec-0f028fa4be1a" alt="그룹탈퇴소유자" height="400">
+    <img src="https://github.com/user-attachments/assets/b3bcc353-6f96-4c8d-b2af-8a9b4c6097f5" alt="스니펫확장" height="400">
   </p>
 
   - 카드에서 확장 버튼을 누르면 스니펫 상세 페이지로 이동할 수 있습니다.
