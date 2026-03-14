@@ -122,29 +122,7 @@ UI 탐색 및 검색
 </details>
 <br />
 
-## 👨🏻‍💻 팀원 소개
-<p align="center">
-  <img height="150" alt="백엔드" src="https://github.com/user-attachments/assets/3f523dae-3032-4b0e-8252-92ba4f320be5" />
-</p>
-</br>
-<p align="center">
-  <img height="150" alt="프론트엔드" src="https://github.com/user-attachments/assets/323a1fa0-6dc4-4b52-8601-ec363cfd85f2" />
-</p>
-</br>
-
 ## 🛠️ 기술 스택
-<blockquote>
-  프론트엔드
-</blockquote>
-  <br />
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/ea0e4a9d-29ca-4fe2-abd1-8313e8467be9" alt="프론트엔드" height="200">
-</p>
-</br>
-<blockquote>
-  백엔드
-</blockquote>
-  <br />
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/b9bc3755-abe7-4e80-a763-1540b954dc56" alt="백엔드" height="200">
+  <img src="https://github.com/user-attachments/assets/2433db82-ed00-44d8-bcd4-d86f47d84ce8" alt="기술스택" height="200">
 </p>
