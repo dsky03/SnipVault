@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import SnippetCard from "../components/SnippetCard";
 import { CodeXml, Plus } from "lucide-react";
 import { Snippet } from "@/app/types/snippet";
@@ -22,8 +23,16 @@ import {
 
 // modal
 import Modal from "../modal/modal";
-import CreateSnippet from "../modal/CreateSnippet";
-import UpdateSnippet from "../modal/UpdateSnippet";
+
+const CreateSnippet = dynamic(() => import("../modal/CreateSnippet"), {
+  ssr: false,
+});
+const UpdateSnippet = dynamic(() => import("../modal/UpdateSnippet"), {
+  ssr: false,
+});
+// import CreateSnippet from "../modal/CreateSnippet";
+// import UpdateSnippet from "../modal/UpdateSnippet";
+
 import { setUserId } from "../util/userSlice";
 import toast from "react-hot-toast";
 import { setCounts } from "../util/categorySlice";
@@ -64,7 +73,6 @@ export default function Home() {
     queryKey: ["me"],
     queryFn: async () => {
       const res = await api.get("/auth/me");
-      console.log(res.data.user.userId);
       dispatch(setUserId(res.data.user.userId));
       return res.data.user;
     },
@@ -190,7 +198,7 @@ export default function Home() {
         isOpen={isCreateSnippetModal}
         onClose={() => dispatch(setCreateSnippetModal(false))}
       >
-        <CreateSnippet />
+        {isCreateSnippetModal && <CreateSnippet />}
       </Modal>
       <Modal
         isOpen={isUpdateSnippetModal}
@@ -198,7 +206,7 @@ export default function Home() {
           dispatch(setUpdateSnippetModal({ open: false, snippetId: "" }))
         }
       >
-        <UpdateSnippet />
+        {isUpdateSnippetModal && <UpdateSnippet />}
       </Modal>
     </>
   );

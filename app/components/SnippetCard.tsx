@@ -1,31 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-
-// import {
-//   SandpackLayout,
-//   SandpackPreview,
-//   SandpackProvider,
-// } from "@codesandbox/sandpack-react";
-
-const SandpackProvider = dynamic(
-  () =>
-    import("@codesandbox/sandpack-react").then((mod) => mod.SandpackProvider),
-  { ssr: false },
-);
-
-const SandpackLayout = dynamic(
-  () => import("@codesandbox/sandpack-react").then((mod) => mod.SandpackLayout),
-  { ssr: false },
-);
-
-const SandpackPreview = dynamic(
-  () =>
-    import("@codesandbox/sandpack-react").then((mod) => mod.SandpackPreview),
-  { ssr: false },
-);
-
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Code2,
   Eye,
@@ -38,7 +14,6 @@ import {
 } from "lucide-react";
 import { Snippet } from "@/app/types/snippet";
 import toast from "react-hot-toast";
-import { getSandpackFiles } from "../util/sandpack";
 import { useRouter } from "next/navigation";
 import api from "@/lib/axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -49,17 +24,73 @@ interface Props {
   snippet: Snippet;
 }
 
+const PREVIEW_ROOT_MARGIN = "240px 0px";
+
+function PreviewPlaceholder({ loading = false }: { loading?: boolean }) {
+  return (
+    <div className="flex h-full w-full items-center justify-center rounded-t-xl bg-[#0f1117]">
+      <div className="flex flex-col items-center gap-3 text-white/55">
+        <div className="flex items-center gap-1.5">
+          {[0, 1, 2].map((dot) => (
+            <span
+              key={dot}
+              className="h-2 w-2 rounded-full bg-violet-400/80"
+            />
+          ))}
+        </div>
+        <span className="text-xs tracking-[0.18em] uppercase">
+          {loading ? "Loading preview" : "Preview ready"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+const SnippetCardPreview = dynamic(() => import("./SnippetCardPreview"), {
+  ssr: false,
+  loading: () => <PreviewPlaceholder loading />,
+});
+
 const SnippetCard = ({ snippet }: Props) => {
   const [showPreview, setShowPreview] = useState(true);
   const [showOption, setShowOption] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isPreviewActive, setIsPreviewActive] = useState(false);
+  const previewRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector((state) => state.user.userId);
-  const files = getSandpackFiles(snippet.code);
   const router = useRouter();
   const queryClient = useQueryClient();
 
   const isAuthor = currentUser === snippet.userId;
+
+  useEffect(() => {
+    const node = previewRef.current;
+
+    if (!showPreview || !node) {
+      setIsPreviewActive(false);
+      return;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      setIsPreviewActive(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsPreviewActive(entry.isIntersecting);
+      },
+      {
+        rootMargin: PREVIEW_ROOT_MARGIN,
+        threshold: 0.01,
+      },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [showPreview]);
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -95,28 +126,16 @@ const SnippetCard = ({ snippet }: Props) => {
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-xl border hover:border-[#7738EF]/20 hover:shadow-lg hover:shadow-[#7738EF]/20">
-      <div className="relative overflow-hidden h-40 w-68 md:w-80">
+      <div
+        ref={previewRef}
+        className="relative overflow-hidden h-40 w-68 md:w-80"
+      >
         {showPreview ? (
-          <SandpackProvider
-            template="react"
-            theme={"dark"}
-            files={files}
-            options={{
-              externalResources: ["https://cdn.tailwindcss.com"],
-            }}
-          >
-            <SandpackLayout>
-              <SandpackPreview
-                showOpenInCodeSandbox={false}
-                showNavigator={false}
-                showRefreshButton={true}
-                style={{
-                  height: "100%",
-                  width: "100%",
-                }}
-              />
-            </SandpackLayout>
-          </SandpackProvider>
+          isPreviewActive ? (
+            <SnippetCardPreview code={snippet.code} />
+          ) : (
+            <PreviewPlaceholder />
+          )
         ) : (
           <pre className="custom-scroll h-full w-full bg-[#0f1117] p-4 text-xs font-mono text-gray-300 overflow-auto rounded-t-xl">
             <code>{snippet.code}</code>
