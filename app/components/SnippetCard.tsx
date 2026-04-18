@@ -22,6 +22,7 @@ import { setUpdateSnippetModal } from "../util/modalSlice";
 
 interface Props {
   snippet: Snippet;
+  currentUserId?: string;
 }
 
 const PREVIEW_ROOT_MARGIN = "240px 0px";
@@ -51,7 +52,7 @@ const SnippetCardPreview = dynamic(() => import("./SnippetCardPreview"), {
   loading: () => <PreviewPlaceholder loading />,
 });
 
-const SnippetCard = ({ snippet }: Props) => {
+const SnippetCard = ({ snippet, currentUserId }: Props) => {
   const [showPreview, setShowPreview] = useState(true);
   const [showOption, setShowOption] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -62,7 +63,8 @@ const SnippetCard = ({ snippet }: Props) => {
   const router = useRouter();
   const queryClient = useQueryClient();
 
-  const isAuthor = currentUser === snippet.userId;
+  const resolvedUserId = currentUser || currentUserId || "";
+  const isAuthor = resolvedUserId === snippet.userId;
 
   useEffect(() => {
     const node = previewRef.current;
